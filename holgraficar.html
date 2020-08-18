@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html lang="es-ES">
+  <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <style>
+  table, td, th {
+  border: 1px solid black;
+  background-color: black;
+  color: white;
+  }
+  
+  table {
+  border-collapse: collapse;
+  width: 100%;
+  }
+  
+  th {
+  height: 100px;
+  width: 100px;
+  background-color: black;
+  color: white;
+  }
+  
+  td{
+  width:100px;
+  height:100px;
+  }
+  
+  
+  </style>
+  </head>
+    <meta charset="utf-8">
+    <title>Holograficar Youtube</title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td></td>
+        <td>
+            <iframe 
+            id="youtube-vvideoideo"
+            class="youtube-vvideoideo"
+            width="100" 
+                    height="100" 
+                    src="https://www.youtube.com/embed/mQJk-oUGjCc?enablejsapi=1&version=3&playerapiid=ytplayer"  
+                    allowfullscreen>
+             </iframe>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+	        <iframe
+	        id="youtube-vvideoideo270"
+	        class="youtube-vvideoideo270"
+	                style="transform:rotate(270deg)"
+	                width="100" 
+		            height="100" 
+		            src="https://www.youtube.com/embed/mQJk-oUGjCc?enablejsapi=1&version=3&playerapiid=ytplayer"  
+		            allowfullscreen>
+	        </iframe>
+        </td>
+        <td></td>
+        <td>
+            <iframe 
+            id="youtube-vvideoideo90"
+                 class="youtube-vvideoideo90"
+                 style="transform:rotate(90deg)"
+                 width="100" 
+                 height="100" 
+                 src="https://www.youtube.com/embed/mQJk-oUGjCc?enablejsapi=1&version=3&playerapiid=ytplayer"  
+                 allowfullscreen>
+            </iframe>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+        <iframe 
+        id="youtube-vvideoideo180"
+        class="youtube-vvideoideo180"
+        style="transform:rotate(180deg)"
+        width="100" 
+        height="100" 
+        src="https://www.youtube.com/embed/mQJk-oUGjCc?enablejsapi=1&version=3&playerapiid=ytplayer"  
+        allowfullscreen>
+        </iframe>
+        </td>
+        <td></td>
+      </tr> 
+    </table>
+    <input id='x' type='text'>
+    <button onclick="recargar()">Click me</button>
+    <div><a href="#" class="play-video">Play Video</a></div>
+    <div><a href="#" class="stop-video">Stop Video</a></div>
+    <div><a href="#" class="pause-video">Pause Video</a></div>
+  </body>
+  <script type="text/javascript">
+$('a.play-video').click(function(){
+	$('.youtube-vvideoideo')[0].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+	$('.youtube-vvideoideo90')[0].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+	$('.youtube-vvideoideo180')[0].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+    $('.youtube-vvideoideo270')[0].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
+ 
+    
+	
+});
+
+$('a.stop-video').click(function(){
+	$('.youtube-vvideoideo')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
+	$('.youtube-vvideoideo90')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
+	$('.youtube-vvideoideo180')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
+	$('.youtube-vvideoideo270')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');
+});
+
+$('a.pause-video').click(function(){
+	$('.youtube-vvideoideo')[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
+    $('.youtube-vvideoideo90')[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
+    $('.youtube-vvideoideo180')[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
+    $('.youtube-vvideoideo270')[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
+});
+
+function recargar(){
+       var src = 'https://www.youtube.com/embed/' +
+                  document.getElementById('x').value +
+                  '?enablejsapi=1&version=3&playerapiid=ytplayer';
+       document.getElementById('youtube-vvideoideo').setAttribute('src',src);
+       document.getElementById('youtube-vvideoideo90').setAttribute('src',src);
+       document.getElementById('youtube-vvideoideo180').setAttribute('src',src);
+       document.getElementById('youtube-vvideoideo270').setAttribute('src',src);
+  
+  }
+  </script>
+</html>
