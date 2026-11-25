@@ -27,6 +27,8 @@ Consejo: los videos con **fondo negro** son los que mejor quedan. Buscá en YouT
 
 ## Cómo armar la pirámide
 
+Estos mismos pasos están dentro de la app: botón **📐 Cómo armar la pirámide** en el menú (también se abre solo la primera vez). En Android la plantilla se muestra en **tamaño real**, para calcarla apoyando el plástico sobre la pantalla.
+
 Pasos basados en la guía de Parque Explora: [Cómo hacer un proyector de imágenes 3D con tu celular](https://www.parqueexplora.org/aprende/como-hacer-un-proyector-de-imagenes-3d-con-tu-celular).
 
 **Materiales:** regla, marcador, tijeras, cinta adhesiva transparente, una botella de plástico reciclada (o un plástico transparente rígido, como la tapa de un estuche de CD) y tu celular.

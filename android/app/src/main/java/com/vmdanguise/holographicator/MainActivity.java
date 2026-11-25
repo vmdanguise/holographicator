@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
 import android.webkit.JavascriptInterface;
@@ -219,10 +220,18 @@ public class MainActivity extends ComponentActivity {
     }
 
     /** Lets the page know it is running inside the Android app. */
-    static class HoloApp {
+    class HoloApp {
         @JavascriptInterface
         public String version() {
             return BuildConfig.VERSION_NAME;
+        }
+
+        /** CSS pixels per real centimeter, used to draw the pyramid template at real size. */
+        @JavascriptInterface
+        public double pxPerCm() {
+            DisplayMetrics metrics = getResources().getDisplayMetrics();
+            double dpi = (metrics.xdpi + metrics.ydpi) / 2.0;
+            return dpi / metrics.density / 2.54;
         }
     }
 }

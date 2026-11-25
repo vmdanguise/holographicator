@@ -75,8 +75,83 @@
     </section>
 
     <p id="status" role="status"></p>
+    <button id="open-help" class="accent wide" type="button">📐 Cómo armar la pirámide</button>
     <p class="hint">Tocá la pantalla para mostrar u ocultar este menú. Apoyá la pirámide sobre la cruz del centro.</p>
   </aside>
+
+  <div id="help" role="dialog" aria-modal="true" aria-labelledby="help-title" hidden>
+    <div class="help-inner">
+      <header>
+        <h2 id="help-title">Cómo armar la pirámide</h2>
+        <button id="close-help" class="icon" type="button" aria-label="Cerrar ayuda">✕</button>
+      </header>
+
+      <p>Con una botella de plástico armás una pirámide que, apoyada sobre la pantalla, hace que la imagen parezca flotar en el aire.</p>
+
+      <h3>Materiales</h3>
+      <ul>
+        <li>Una botella de plástico transparente (o un plástico rígido y liso, como la tapa de un estuche de CD)</li>
+        <li>Regla, marcador y tijeras</li>
+        <li>Cinta adhesiva transparente</li>
+        <li>Tu celular con esta app</li>
+      </ul>
+
+      <h3>1. Trazá la plantilla</h3>
+      <p>La plantilla es un triángulo sin punta (un trapecio) con estas medidas:</p>
+      <figure class="template">
+        <div class="template-scroll">
+          <svg id="template-svg" viewBox="-1 -6 62 48" role="img" aria-label="Plantilla: trapecio de 6 cm de base mayor, 1 cm de base menor y 3,5 cm de alto">
+            <polygon class="cut" points="0,0 60,0 35,35 25,35" />
+            <line class="axis" x1="30" y1="0" x2="30" y2="35" />
+            <text x="30" y="-2">6 cm</text>
+            <text x="30" y="40.5">1 cm</text>
+            <text x="32" y="16" class="side">3,5 cm</text>
+          </svg>
+        </div>
+        <figcaption id="template-caption"></figcaption>
+      </figure>
+
+      <h3>2. Cortá 4 caras iguales</h3>
+      <p>Recortá la parte lisa de la botella. Con la plantilla, marcá y cortá <strong>4 trapecios</strong>. Cuanto más parecidos sean, mejor se ve el resultado.</p>
+
+      <h3>3. Armá la pirámide</h3>
+      <p>Uní los 4 trapecios por los costados con cinta transparente: queda una pirámide sin punta, con un cuadrado grande de 6 cm arriba y uno chico de 1 cm abajo. Que los bordes queden bien pegados y la pirámide firme.</p>
+
+      <h3>4. Elegí qué mostrar</h3>
+      <p>Cerrá esta ayuda y elegí un video de YouTube, uno del celular o la cámara. Los videos con <strong>fondo negro</strong> son los que mejor quedan.</p>
+
+      <h3>5. Mirá el holograma</h3>
+      <figure class="diagram">
+        <svg viewBox="0 0 120 120" role="img" aria-label="La pirámide va apoyada con el cuadrado chico sobre la cruz del centro">
+          <rect class="screen" x="1" y="1" width="118" height="118" rx="8" />
+          <rect class="copy" x="44" y="14" width="32" height="18" />
+          <rect class="copy" x="44" y="88" width="32" height="18" />
+          <rect class="copy" x="14" y="44" width="18" height="32" />
+          <rect class="copy" x="88" y="44" width="18" height="32" />
+          <path class="pyramid" d="M30,30 H90 V90 H30 Z M55,55 H65 V65 H55 Z M30,30 L55,55 M90,30 L65,55 M90,90 L65,65 M30,90 L55,65" />
+          <path class="cross" d="M60,54 V66 M54,60 H66" />
+        </svg>
+      </figure>
+      <p>Apagá la luz, poné el celular acostado y apoyá la pirámide <strong>con el cuadrado chico hacia abajo</strong>, justo sobre la cruz celeste del centro. Mirala desde un costado, a la altura de la pirámide: la imagen aparece flotando adentro.</p>
+
+      <h3>Si no se ve bien</h3>
+      <ul>
+        <li>Imágenes cortadas o fuera de las caras: tocá <strong>Ajuste automático</strong> o mové <strong>Tamaño</strong> y <strong>Separación del centro</strong>.</li>
+        <li>El holograma aparece cabeza abajo: activá <strong>Girar 180° cada copia</strong>.</li>
+        <li>El texto se lee al revés: activá <strong>Espejar</strong>.</li>
+        <li>Imagen borrosa o deformada: usá un plástico más liso y transparente, sin rayas.</li>
+      </ul>
+
+      <h3>¿Es un holograma de verdad?</h3>
+      <p>No: es una <strong>proyección estereográfica</strong>. La luz de las 4 imágenes se refleja en las caras de la pirámide y coincide en el centro, donde parece formarse una imagen con volumen. Si tapás una cara, esa parte de la imagen deja de verse; en un holograma real no pasa eso.</p>
+
+      <p class="source">Pasos basados en la guía de Parque Explora:
+        <a href="https://www.parqueexplora.org/aprende/como-hacer-un-proyector-de-imagenes-3d-con-tu-celular" target="_blank" rel="noopener">Cómo hacer un proyector de imágenes 3D con tu celular</a>.
+        Las medidas de la plantilla son una referencia habitual, no son de esa guía.</p>
+
+      <button id="help-done" class="accent wide" type="button">Listo, ¡a probar!</button>
+    </div>
+  </div>
 
   <script src="app.js"></script>
 </body>
