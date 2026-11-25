@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Pyramid seen from above: outer square, inner square and the four edges. -->
+    <path
+        android:fillColor="#1A33CCCC"
+        android:pathData="M30,30 L78,30 L78,78 L30,78 Z" />
+    <path
+        android:strokeColor="#33CCCC"
+        android:strokeWidth="2.5"
+        android:strokeLineJoin="round"
+        android:pathData="M30,30 L78,30 L78,78 L30,78 Z M46,46 L62,46 L62,62 L46,62 Z M30,30 L46,46 M78,30 L62,46 M78,78 L62,62 M30,78 L46,62" />
+    <path
+        android:fillColor="#AAFFFF"
+        android:pathData="M54,49 L59,54 L54,59 L49,54 Z" />
+</vector>
