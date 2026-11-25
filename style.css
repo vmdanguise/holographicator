@@ -252,3 +252,156 @@ small {
   font-size: 0.85rem;
   color: #888;
 }
+
+button.accent {
+  background: #0b5d63;
+  border-color: #3cc;
+}
+
+button.accent:active {
+  background: #0e7880;
+}
+
+button.wide {
+  width: 100%;
+  margin-top: 12px;
+}
+
+#help {
+  position: fixed;
+  inset: 0;
+  z-index: 4;
+  overflow-y: auto;
+  background: #000;
+  padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right))
+           max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+}
+
+.help-inner {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+#help header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #7ff;
+}
+
+h3 {
+  margin: 22px 0 6px;
+  font-size: 1.05rem;
+  color: #7ff;
+}
+
+#help p, #help li {
+  color: #d4d4da;
+}
+
+#help ul {
+  margin: 0;
+  padding-left: 1.2em;
+}
+
+#help li + li {
+  margin-top: 4px;
+}
+
+#help a {
+  color: #7ff;
+}
+
+figure {
+  margin: 12px 0;
+}
+
+.template-scroll {
+  overflow-x: auto;
+  margin: 0 -16px;
+  padding: 0 16px;
+}
+
+#template-svg {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+#template-svg .cut {
+  fill: rgba(51, 204, 204, 0.08);
+  stroke: #fff;
+  stroke-width: 0.35;
+  stroke-linejoin: round;
+}
+
+#template-svg .axis {
+  stroke: #3cc;
+  stroke-width: 0.25;
+  stroke-dasharray: 1 1;
+}
+
+#template-svg text {
+  fill: #7ff;
+  font-size: 3.2px;
+  text-anchor: middle;
+}
+
+#template-svg text.side {
+  text-anchor: start;
+}
+
+figcaption {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: #fc6;
+  text-align: center;
+}
+
+figcaption:empty {
+  display: none;
+}
+
+.diagram svg {
+  display: block;
+  width: min(240px, 70%);
+  margin: 0 auto;
+}
+
+.diagram .screen {
+  fill: #050505;
+  stroke: #555;
+  stroke-width: 1.5;
+}
+
+.diagram .copy {
+  fill: #0b5d63;
+}
+
+.diagram .pyramid {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1;
+  stroke-linejoin: round;
+}
+
+.diagram .cross {
+  stroke: #3cc;
+  stroke-width: 1;
+}
+
+.source {
+  margin-top: 22px;
+  font-size: 0.85rem;
+}
+
+#help-done {
+  margin: 16px 0 8px;
+}

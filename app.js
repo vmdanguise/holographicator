@@ -516,8 +516,44 @@
     document.body.classList.toggle('panel-open', open);
   }
 
+  const help = $('help');
+
+  // Shows the template at real size when the Android app reports the screen density.
+  function sizeTemplate() {
+    const svg = $('template-svg');
+    const caption = $('template-caption');
+    let pxPerCm = 0;
+    if (isApp && typeof window.HoloApp.pxPerCm === 'function') {
+      pxPerCm = Number(window.HoloApp.pxPerCm()) || 0;
+    }
+    const nominal = 160 / 2.54;
+    if (pxPerCm > nominal * 0.6 && pxPerCm < nominal * 1.6) {
+      const viewBox = svg.viewBox.baseVal;
+      svg.style.width = `${viewBox.width / 10 * pxPerCm}px`;
+      svg.style.maxWidth = 'none';
+      caption.textContent = 'Está en tamaño real: apoyá el plástico sobre la pantalla y calcá el contorno blanco. Si querés, comprobá con una regla.';
+    } else {
+      caption.textContent = 'El dibujo no está en tamaño real: copiá las medidas con una regla.';
+    }
+  }
+
+  function setHelpOpen(open) {
+    help.hidden = !open;
+    if (open) {
+      sizeTemplate();
+      help.scrollTop = 0;
+    } else if (!settings.helpSeen) {
+      settings.helpSeen = true;
+      saveSettings();
+    }
+  }
+
   // Called by the Android app when the back button is pressed.
   window.holoBack = () => {
+    if (!help.hidden) {
+      setHelpOpen(false);
+      return true;
+    }
     if (document.body.classList.contains('panel-open')) return false;
     setPanelOpen(true);
     return true;
@@ -544,6 +580,12 @@
     setPanelOpen(!document.body.classList.contains('panel-open'));
   });
   $('close-panel').addEventListener('click', () => setPanelOpen(false));
+  $('open-help').addEventListener('click', () => setHelpOpen(true));
+  $('close-help').addEventListener('click', () => setHelpOpen(false));
+  $('help-done').addEventListener('click', () => setHelpOpen(false));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !help.hidden) setHelpOpen(false);
+  });
 
   document.querySelectorAll('.tabs button').forEach((tab) => {
     tab.addEventListener('click', () => {
@@ -614,4 +656,5 @@
   setInterval(syncFollowers, SYNC_INTERVAL_MS);
   requestAnimationFrame(frame);
   setMode(['youtube', 'file', 'camera'].includes(settings.mode) ? settings.mode : 'youtube');
+  if (!settings.helpSeen) setHelpOpen(true);
 })();
