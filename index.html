@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Holographicator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="panel-open">
+  <canvas id="canvas" hidden></canvas>
+  <div id="yt-stage" hidden></div>
+  <div id="tap-layer"></div>
+  <div id="guide" aria-hidden="true"></div>
+
+  <aside id="panel">
+    <header>
+      <h1>Holographicator</h1>
+      <button id="close-panel" class="icon" type="button" aria-label="Ocultar menú">✕</button>
+    </header>
+
+    <div class="tabs" role="tablist">
+      <button type="button" role="tab" data-mode="youtube">YouTube</button>
+      <button type="button" role="tab" data-mode="file">Archivo</button>
+      <button type="button" role="tab" data-mode="camera">Cámara</button>
+    </div>
+
+    <section data-for="youtube">
+      <form id="yt-form" class="row">
+        <input id="yt-url" type="text" inputmode="url" autocomplete="off" spellcheck="false"
+               placeholder="Link o ID de YouTube">
+        <button type="submit">Cargar</button>
+      </form>
+    </section>
+
+    <section data-for="file">
+      <div class="row">
+        <label class="button">
+          Elegir video o imagen
+          <input id="file-input" type="file" accept="video/*,image/*" hidden>
+        </label>
+        <span id="file-name"></span>
+      </div>
+    </section>
+
+    <section data-for="camera">
+      <div class="row">
+        <button id="camera-switch" type="button">Cambiar cámara</button>
+      </div>
+    </section>
+
+    <section class="controls">
+      <div class="row">
+        <button id="play" type="button">Play / Pausa</button>
+        <button id="auto-fit" type="button">Ajuste automático</button>
+        <button id="fullscreen" type="button">Pantalla completa</button>
+      </div>
+      <label class="range">
+        <span>Tamaño</span>
+        <input id="size" type="range" min="0.1" max="1" step="0.005">
+      </label>
+      <label class="range">
+        <span>Separación del centro</span>
+        <input id="gap" type="range" min="0" max="0.5" step="0.0025">
+      </label>
+      <label class="check">
+        <input id="mirror" type="checkbox">
+        <span>Espejar <small>(si el texto se ve al revés en la pirámide)</small></span>
+      </label>
+      <label class="check">
+        <input id="inward" type="checkbox">
+        <span>Girar 180° cada copia <small>(si el holograma aparece cabeza abajo)</small></span>
+      </label>
+    </section>
+
+    <p id="status" role="status"></p>
+    <p class="hint">Tocá la pantalla para mostrar u ocultar este menú. Apoyá la pirámide sobre la cruz del centro.</p>
+  </aside>
+
+  <script src="app.js"></script>
+</body>
+</html>
