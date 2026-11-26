@@ -102,3 +102,18 @@ keyPassword=...
 ```
 
 El APK queda en `android/app/build/outputs/apk/release/app-release.apk`.
+
+### Publicar en Google Play
+
+Paquete: `ar.holographicator`. Play pide un App Bundle firmado:
+
+```
+cd android
+./gradlew bundleRelease
+```
+
+Queda en `android/app/build/outputs/bundle/release/app-release.aab`. En cada versión nueva hay que subir `versionCode` en `android/app/build.gradle`.
+
+- Textos de la ficha y respuestas para la sección "Contenido de la app": [`store/ficha-play-store.md`](store/ficha-play-store.md).
+- Ícono, gráfico de funciones y capturas: `store/graphics/` (se regeneran con `python store/make_graphics.py`).
+- La carpeta `web/` se publica en GitHub Pages con cada push a `main` (incluye la [política de privacidad](https://vmdanguise.github.io/holographicator/privacy.html)).
