@@ -116,4 +116,9 @@ Queda en `android/app/build/outputs/bundle/release/app-release.aab`. En cada ver
 
 - Textos de la ficha y respuestas para la sección "Contenido de la app": [`store/ficha-play-store.md`](store/ficha-play-store.md).
 - Ícono, gráfico de funciones y capturas: `store/graphics/` (se regeneran con `python store/make_graphics.py`).
-- La carpeta `web/` se publica en GitHub Pages con cada push a `main` (incluye la [política de privacidad](https://vmdanguise.github.io/holographicator/privacy.html)).
+- La carpeta `web/` se publica en GitHub Pages desde la rama `gh-pages` (incluye la [política de privacidad](https://vmdanguise.github.io/holographicator/privacy.html)). Para actualizarla:
+
+  ```
+  git subtree split --prefix web -b gh-pages
+  git push -f origin gh-pages
+  ```
